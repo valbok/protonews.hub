@@ -26,4 +26,18 @@ interface iEventStorage {
      * @return iEvent
      */
     function fetch($id);
+
+    /**
+     * Inserts an event to db
+     *
+     * @return int
+     */
+    function insert(iEvent $event);
+
+    /**
+     * Deletes an event from db
+     *
+     * @return void
+     */
+    function delete($id);
 }

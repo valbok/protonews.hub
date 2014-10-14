@@ -23,30 +23,14 @@ class MysqlEventStorage implements iEventStorage {
     }
 
     /**
-     * Executes select queries
-     *
-     * @return []
-     */
-    protected function query($q) {
-        return $this->pdo->query($q)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    /**
-     * Executes a query
-     *
-     * @return bool
-     */
-    protected function exec($q) {
-        return $this->pdo->exec($q);
-    }
-
-    /**
      * @copydoc iEventStorage::fetch
      */
     function fetch($id) {
-        $id = intval($id);
-        $sql = 'SELECT * FROM event WHERE id = ' . $id;
-        $e = $this->query($sql);
+        $stmt = $this->pdo->prepare('SELECT * FROM event WHERE id = :id');        
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        $e = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!isset($e[0])) {
             return false;
         }
@@ -60,10 +44,15 @@ class MysqlEventStorage implements iEventStorage {
     function fetchList($limit = false, $offset = false) {
         $sql = 'SELECT * FROM event';
         if ($limit or $offset) {
-            $sql .= ' limit ' . intval($offset) . ', ' . intval($limit);
+            $sql .= ' limit :offset, :limit';
         }
+        $stmt = $this->pdo->prepare($sql);        
+        $stmt->bindValue(':limit', $limit);
+        $stmt->bindValue(':offset', $offset);
+        $stmt->execute();
+
         $result = array();
-        $list = $this->query($sql);
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($list as $item) {
             $result[] = $this->parse($item);
         }
@@ -72,26 +61,39 @@ class MysqlEventStorage implements iEventStorage {
     }
 
     /**
-     * Inserts an event to db
-     *
-     * @return int
+     * @copydoc iEventStorage::insert
      */
     function insert(iEvent $event) {
-        $sql = 'INSERT INTO event(name, created, updated) VALUES(';
-        $sql .= '"' . self::escapeString($event->name()) . '", "' . intval($event->created()) . '", "' . intval($event->updated()) . '")';
-        
-        $this->exec($sql);
+        $sql = 'INSERT INTO event(name, created, updated) VALUES(:name, :created, :updated)';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':name', $event->name());
+        $stmt->bindValue(':created', $event->created());
+        $stmt->bindValue(':updated', $event->updated());
+        $stmt->execute();        
 
         $id = $this->pdo->lastInsertId();
         $event->id = $id;
         foreach ($event->articleIds() as $aid) {
-            $sql = 'INSERT INTO article(event_id, article_id) VALUES(';
-            $sql .= '"' . $id . '", "' . self::escapeString($aid) . '")';
-            
-            $this->exec($sql);
+            $sql = 'INSERT INTO article(event_id, article_id) VALUES(:id, :aid)';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':aid', $aid);
+            $stmt->execute();
         }
 
         return $id;
+    }
+
+    /**
+     * @copydoc iEventStorage::delete
+     */
+    function delete($id) {
+        $stmt = $this->pdo->prepare('DELETE FROM article WHERE event_id = :id');
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $stmt = $this->pdo->prepare('DELETE FROM event WHERE id = :id');
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
     }
 
     /**
@@ -105,8 +107,11 @@ class MysqlEventStorage implements iEventStorage {
         $event->created($e['created']);
         $event->updated($e['updated']);
 
-        $sql = 'SELECT article_id FROM article WHERE event_id = ' . $e['id'];
-        $as = $this->query($sql);
+        $sql = 'SELECT article_id FROM article WHERE event_id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id',  $e['id']);
+        $stmt->execute();
+        $as = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($as as $a) {
             $event->append($a['article_id']);
         }
@@ -123,9 +128,5 @@ class MysqlEventStorage implements iEventStorage {
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
         return $pdo;        
-    }
-
-    function escapeString($str) {
-        return $str;
     }
 }

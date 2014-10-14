@@ -53,5 +53,14 @@ class MysqlEventStorageTest extends PHPUnit_Framework_TestCase {
         $this->assertNotEquals($list[0]->id(), $list2[0]->id());
         $this->assertNotEquals($list[1]->id(), $list2[1]->id());
     }
+
+    function testDelete() {
+        $db = new MysqlEventStorage(MysqlEventStorage::pdo());
+        $list = $db->fetchList();
+        $db->delete($list[0]->id());
+        $this->assertFalse($db->fetch($list[0]->id()));
+        $list2 = $db->fetchList();
+        $this->assertEquals(count($list), count($list2) + 1);
+    }
 }
 ?>
