@@ -6,19 +6,22 @@
  */
 
 /**
- * Adapter for defined article storage
+ * Proxy for defined article storage
  */
 class ArticleStorage {
 
     /**
-     * Fetches a list of articles
-     *
-     * @param $limit int
-     * @param $offset int
-     * @return Article[]
+     * @copydoc iArticleStorage::fetchList
      */
     static function fetchList($limit = false, $offset = false) {
+        static $cache = [];
+        $key = md5($limit . $offset);
+        if (isset($cache[$key])) {
+            return $cache[$key];
+        }
+        
         $list = self::storage()->fetchList($limit, $offset);
+        $cache[$key] = $list;
 
         return $list;
     }

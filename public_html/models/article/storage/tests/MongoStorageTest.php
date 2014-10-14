@@ -39,7 +39,7 @@ class MongoStorageTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($list2));
         $this->assertEquals($limit, count($list2));
         for ($i = 0; $i < $limit; $i++) {
-            $this->assertNotEquals($list[$i]->id, $list2[$i]->id);
+            $this->assertNotEquals($list[$i]->id(), $list2[$i]->id());
         }
     }
 

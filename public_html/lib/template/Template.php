@@ -28,7 +28,7 @@ class Template
     /**
      * @param string $dir Where templates are located
      */
-    public function __construct($dir = 'core/views/templates')
+    public function __construct($dir = 'views/templates')
     {
         $this->dir = $dir;
     }

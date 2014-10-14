@@ -18,7 +18,7 @@ class Controller_frontpage extends Controller {
         $offset = intval(@$_GET['offset']);
         $list = ArticleStorage::fetchList($limit, $offset);
 
-        $tpl = new Template();
+        $tpl = Template::get();
         $tpl->article_list = $list;
 
         return $tpl->fetch('frontpage.tpl');
