@@ -12,9 +12,11 @@ require 'autoload.php';
 
 $uri = $_SERVER['SCRIPT_NAME'];
 try {
-    $tpl = Template::get();
-    $tpl->page = trim(ControllerHandler::process($uri == '/' ? 'frontpage' : $uri));
-    echo $tpl->fetch('layout.tpl');
+    echo trim(
+        ControllerHandler::process(
+            $uri == '/' ? 'frontpage' : substr($uri, 1)
+        )
+    );
 } catch (Exception $e) {
     echo $e->getMessage();
 }

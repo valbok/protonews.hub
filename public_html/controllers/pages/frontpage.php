@@ -14,13 +14,6 @@ class Controller_frontpage extends Controller {
      * @copydoc Controller::process
      */
     function process() {
-        $limit = 10;
-        $offset = intval(@$_GET['offset']);
-        $list = ArticleStorage::fetchList($limit, $offset);
-
-        $tpl = Template::get();
-        $tpl->article_list = $list;
-
-        return $tpl->fetch('frontpage.tpl');
+        return self::layout(Template::get()->fetch('frontpage.tpl'));
 	}
 }

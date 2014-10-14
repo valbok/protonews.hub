@@ -8,7 +8,7 @@
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="cache-control" content="no-store">    
     <title>Hub</title>
-    <link rel='stylesheet' href='/core/views/css/frontpage.css' />
+    <link rel='stylesheet' href='/views/css/frontpage.css' />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">

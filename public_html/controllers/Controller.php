@@ -9,5 +9,14 @@
  * Base abstract controller. Shares logic between other controllers.
  */
 abstract class Controller implements iController {
-    // Empty for now
+
+    /**
+     * @return html
+     */
+    static function layout($html) {
+        $tpl = Template::get();        
+        $tpl->page = trim($html);
+
+        return $tpl->fetch('layout.tpl');
+    }
 }
