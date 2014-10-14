@@ -41,6 +41,5 @@ interface iEvent {
      * @return this|[]
      */    
     function articleIds();
-
 }
 

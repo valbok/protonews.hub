@@ -23,39 +23,43 @@ class MongoArticleStorage implements iArticleStorage {
     }
 
     /**
-     * Fetches a list of articles
-     *
-     * @param $limit int
-     * @param $offset int
-     * @return iArticle[]
+     * @copydoc iArticleStorage::fetchList
      */
     function fetchList($limit = false, $offset = false) {
         $result = array();
-        $cursor = $this->find();
+        $cursor = $this->collection->find();
         $cursor->limit($limit);
         $cursor->skip($offset);
         foreach ($cursor as $id => $value) {
-            $item = new Article;
-            $item->id = $id;
-            $item->content = $value['content'];            
-            $item->imgUrl = $value['imgUrl']; 
-            $item->link = $value['link']; 
-            $item->type = $value['type']; 
-            $item->created = (string) $value['createTime'];
-            $item->updated = (string) $value['updateTime'];
-
-            $result[] = $item;
+            $result[] = self::parse($value);
         }
 
         return $result;
     }
 
     /**
-     * @param []
-     * @return []
+     * @return Article
      */
-    protected function find($q = array()) {
-        return $this->collection->find($q);
+    protected static function parse($value) {
+        $item = new Article;
+        $item->id($value['_id']);
+        $item->content($value['content']);   
+        $item->imgUrl($value['imgUrl']);
+        $item->link($value['link']); 
+        $item->type($value['type']); 
+        $item->created((string) $value['createTime']);
+        $item->updated((string) $value['updateTime']);
+
+        return $item;
+    }
+
+    /**
+     * @copydoc iArticleStorage::fetch
+     */
+    function fetch($id) {
+        $o = $this->collection->findOne(array('_id' => new MongoId($id)));
+
+        return self::parse($o);
     }
 
     /**

@@ -27,6 +27,25 @@ class ArticleStorage {
     }
 
     /**
+     * @copydoc iArticleStorage::fetch
+     */
+    function fetch($id) {
+        static $cache = array();
+        if (isset($cache[$id])) {
+            return $cache[$id];
+        }
+
+        $result = false;
+        try {
+            $result = self::storage()->fetch($id);
+            $cache[$id] = $result;
+        } catch (Exception $e) {
+        }
+
+        return $result;        
+    }
+
+    /**
      * @return iArticleStorage
      */
     protected static function storage() {

@@ -43,5 +43,18 @@ class MongoStorageTest extends PHPUnit_Framework_TestCase {
         }
     }
 
+    function testFetch() {
+        $collection = MongoArticleStorage::collection();
+        $m = new MongoArticleStorage($collection);
+        $o = $m->fetch('542eaa5c588af691ffc53320');
+        $this->assertEquals('542eaa5c588af691ffc53320', $o->id());
+
+        try {
+            $o = $m->fetch('wrong');
+            $this->fail('Exception');
+        } catch (Exception $e) {
+        }
+    }
+
 }
 ?>

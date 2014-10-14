@@ -18,4 +18,12 @@ interface iArticleStorage {
      * @return iArticle[]
      */
     function fetchList($limit, $offset);
+
+    /**
+     * Fetches one object
+     *
+     * @param $id int
+     * @return iArticle
+     */
+    function fetch($id);
 }

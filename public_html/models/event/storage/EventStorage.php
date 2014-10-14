@@ -18,11 +18,15 @@ class EventStorage {
         if (isset($cache[$id])) {
             return $cache[$id];
         }
-        
-        $list = self::storage()->fetch($id);
-        $cache[$id] = $list;
 
-        return $list;
+        $result = false;
+        try {
+            $result = self::storage()->fetch($id);
+            $cache[$id] = $result;
+        } catch (Exception $e) {
+        }
+
+        return $result;
     }
 
     /**
