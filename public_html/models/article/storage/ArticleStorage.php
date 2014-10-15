@@ -29,7 +29,7 @@ class ArticleStorage {
     /**
      * @copydoc iArticleStorage::fetch
      */
-    function fetch($id) {
+    static function fetch($id) {
         static $cache = array();
         if (isset($cache[$id])) {
             return $cache[$id];
