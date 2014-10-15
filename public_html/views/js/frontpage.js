@@ -3,12 +3,13 @@ var event_offset = 0;
 $( document ).ready(function(){
     $('.more').click(function() {
         article_offset += 10;
-        $(this).next('.loader').show();
+        var ths = this;
+        $(ths).next('.loader').show();
         var link = '/ajax/articles?offset=' + article_offset;
         $.get( link,
                 function(data) {
                     $(".articles").append(data);
-                    $(this).next('.loader').hide();
+                    $(ths).next('.loader').hide();
                 }
         );
 
@@ -17,8 +18,8 @@ $( document ).ready(function(){
 
     $('.more-events').click(function() {
         event_offset += 10;
-        $(this).next('.loader').show();
         var ths = this;
+        $(ths).next('.loader').show();
         var link = '/ajax/events?offset=' + event_offset;
         $.get( link,
                 function(data) {

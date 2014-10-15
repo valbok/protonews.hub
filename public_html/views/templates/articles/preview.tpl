@@ -9,7 +9,7 @@
                                 <img src="<?=$article->imgUrl()?>" alt=" " class="article-image" />
                             </a>
                         <? } ?>
-                        <span class="df-img-layer"></span>                    
+                        <span class="df-img-layer">&nbsp;</span>                    
                         <div class="artsource" style="right: auto">
                             <a href="<?=$article->link()?>"><?=$article->domain()?></a> 
                         </div>
