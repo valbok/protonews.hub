@@ -16,6 +16,6 @@ class Controller_ajax_articles extends Controller_frontpage {
     function process() {
         $this->articles = self::fetchArticles(@$_GET['offset']);
 
-        return $this->fetch('articles.tpl');
+        return $this->fetch('articles/articles.tpl');
 	}
 }

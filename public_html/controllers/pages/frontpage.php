@@ -9,16 +9,16 @@
  * Frontpage logic
  */
 class Controller_frontpage extends Controller {
-	
+
     /**
      * @copydoc Controller::process
      */
     function process() {
-        $this->title = "Vi samler nyhetene for deg!";
+        $this->title = "News feed";
         $this->articles = self::fetchArticles();
 
         return $this->layout($this->fetch('frontpage.tpl'));
-	}
+    }
 
     /**
      * @return html

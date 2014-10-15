@@ -10,6 +10,8 @@ return array(
     'Controller' => 'controllers/Controller.php',
     'ControllerHandler' => 'controllers/ControllerHandler.php',
     'Controller_frontpage' => 'controllers/pages/frontpage.php',
+    'Controller_events' => 'controllers/pages/events.php',
+    'Controller_event' => 'controllers/pages/event.php',
     'Controller_ajax_articles' => 'controllers/pages/ajax_articles.php',
     'Controller_ajax_events' => 'controllers/pages/ajax_events.php',
     'Controller_admin' => 'controllers/pages/admin.php',
