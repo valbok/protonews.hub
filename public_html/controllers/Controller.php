@@ -11,12 +11,34 @@
 abstract class Controller implements iController {
 
     /**
+     * @var Template
+     */
+    protected $tpl = false;
+
+    function __construct() {
+        $this->tpl = Template::get();
+    }
+
+    /**
+     * @return void
+     */
+    function __set($name, $value) {
+        $this->tpl->$name = $value;
+    }
+
+    /**
      * @return html
      */
-    static function layout($html) {
-        $tpl = Template::get();        
-        $tpl->page = trim($html);
+    function layout($html) {
+        $this->tpl->page = trim($html);
 
-        return $tpl->fetch('layout.tpl');
+        return $this->tpl->fetch('layout.tpl');
+    }
+
+    /**
+     * @return html
+     */
+    function fetch($path) {
+        return $this->tpl->fetch($path);
     }
 }

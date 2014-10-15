@@ -95,5 +95,13 @@ class Article implements iArticle {
     function updated($v = null) {
         return $this->setget('updated', $v);
     }
+
+    /**
+     * @return string
+     */
+    function domain() {
+        $url = parse_url($this->link);
+        return $url['host'];
+    }
 }
 

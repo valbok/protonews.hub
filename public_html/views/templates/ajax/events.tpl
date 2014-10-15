@@ -1,5 +1,5 @@
 <? 
-foreach ($list as $item) {
+foreach ($events as $item) {
     echo $item->id() . "<br/>";
 }
 ?>

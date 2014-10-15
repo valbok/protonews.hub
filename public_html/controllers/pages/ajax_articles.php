@@ -8,19 +8,14 @@
 /**
  * Fetches articles by ajax
  */
-class Controller_ajax_articles extends Controller {
+class Controller_ajax_articles extends Controller_frontpage {
 	
     /**
      * @copydoc Controller::process
      */
     function process() {
-        $limit = 10;
-        $offset = intval(@$_GET['offset']);
-        $list = ArticleStorage::fetchList($limit, $offset);
+        $this->articles = self::fetchArticles(@$_GET['offset']);
 
-        $tpl = Template::get();
-        $tpl->list = $list;
-
-        return $tpl->fetch('ajax/articles.tpl');
+        return $this->fetch('articles.tpl');
 	}
 }

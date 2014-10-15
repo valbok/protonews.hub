@@ -7,13 +7,14 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="cache-control" content="no-store">    
-    <title>Hub</title>
-    <link rel='stylesheet' href='/views/css/frontpage.css' />
+    <title><?=$title?></title>    
+    <link href="http://sol.no/static/css/frontpage/style.min_f65afb6f.css" media="screen" rel="stylesheet" type="text/css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/views/js/frontpage.js" charset="utf-8"></script>
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 </head>
-<body>
+<body class="frontpage  responsiveMenu" data-version="solfront">
     <?=$page?>
 </body>
 </html>

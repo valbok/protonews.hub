@@ -89,10 +89,10 @@ class Template
      *
      * @return void
      */
-    public static function includeTemplate($uri, $data = array()) {
+    public static function tpl($uri, $data = array()) {
         $tpl = self::get();
         foreach ($data as $key => $value) {
-            $tpl->setVariable($key, $value);
+            $tpl->$key = $value;
         }
 
         echo $tpl->fetch($uri);

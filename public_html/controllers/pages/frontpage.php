@@ -14,6 +14,19 @@ class Controller_frontpage extends Controller {
      * @copydoc Controller::process
      */
     function process() {
-        return self::layout(Template::get()->fetch('frontpage.tpl'));
+        $this->title = "Vi samler nyhetene for deg!";
+        $this->articles = self::fetchArticles();
+
+        return $this->layout($this->fetch('frontpage.tpl'));
 	}
+
+    /**
+     * @return html
+     */
+    protected static function fetchArticles($offset = false) {
+        $limit = 10;
+        $articles = ArticleStorage::fetchList($limit, $offset);
+
+        return $articles;
+    }
 }
