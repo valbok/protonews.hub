@@ -4,7 +4,7 @@
             <a title="Børge Brende besøkte ebolarammede Liberia" href="/event?id=<?=$event->id()?>">
                 <h3><?=$event->name()?></h3>
             </a>
-            <div data-uts="1413355465" class="publishtime"><?=date('Y-m-d', $event->created())?></div>
+            <div class="publishtime"><?=date('Y-m-d', $event->created())?></div>
         </div>
     </div>
 </div>

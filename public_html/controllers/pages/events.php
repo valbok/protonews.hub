@@ -17,14 +17,14 @@ class Controller_events extends Controller {
         $this->title = "Events";
         $this->events = self::fetchEvents();
 
-        return $this->layout($this->fetch('events/events.tpl'));
+        return $this->layout($this->fetch('events.tpl'));
     }
 
     /**
      * @return html
      */
     protected static function fetchEvents($offset = false) {
-        $limit = 10;
+        $limit = 4;
         $events = EventStorage::fetchList($limit, $offset);
 
         return $events;
