@@ -4,7 +4,7 @@
             <div id="header" class="header-bar">
                 <div class="wrapper clear">
                     <div class="header-bar-wrap">
-                        <span class="menu-link"><span><a href="/">HUB</a></span></span>
+                        <span class="menu-link"><span><a href="/">news</a></span></span>
                         <form class="searchform"
                           action="#">
                             <a href="/events">Events</a>

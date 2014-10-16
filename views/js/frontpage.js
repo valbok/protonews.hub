@@ -4,8 +4,9 @@ $( document ).ready(function(){
     $('.more').click(function() {
         article_offset += 10;
         var ths = this;
+        var service = $(this).data('service');
         $(ths).next('.loader').show();
-        var link = '/ajax/articles?offset=' + article_offset;
+        var link = '/ajax/' + service + '?offset=' + article_offset;
         $.get( link,
                 function(data) {
                     $(".articles").append(data);
