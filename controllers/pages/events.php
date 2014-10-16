@@ -10,12 +10,16 @@
  */
 class Controller_events extends Controller {
 
+    const LIMIT = 4;
+
     /**
      * @copydoc Controller::process
      */
     function process() {
         $this->title = "Events";
         $this->events = self::fetchEvents();
+        $this->events_total_count = self::fetchEventsCount();
+        $this->limit = self::LIMIT;
 
         return $this->layout($this->fetch('events.tpl'));
     }
@@ -24,9 +28,15 @@ class Controller_events extends Controller {
      * @return html
      */
     protected static function fetchEvents($offset = false) {
-        $limit = 4;
-        $events = EventStorage::fetchList($limit, $offset);
+        $events = EventStorage::fetchList(self::LIMIT, $offset);
 
         return $events;
+    }
+
+    /**
+     * @return int
+     */
+    protected static function fetchEventsCount() {
+        return EventStorage::fetchCount();
     }
 }

@@ -62,5 +62,12 @@ class MysqlEventStorageTest extends PHPUnit_Framework_TestCase {
         $list2 = $db->fetchList();
         $this->assertEquals(count($list), count($list2) + 1);
     }
+
+    function testCount() {
+        $db = new MysqlEventStorage(MysqlEventStorage::pdo());
+        $c = $db->fetchCount();
+        $this->assertTrue(is_numeric($c));
+        $this->assertTrue($c > 0);
+    }
 }
 ?>

@@ -43,6 +43,13 @@ class EventStorage {
     }
 
     /**
+     * @copydoc iEventStorage::fetchCount
+     */
+    static function fetchCount() {
+        return self::storage()->fetchCount();
+    }
+
+    /**
      * @return bool true if ok
      */
     static function insert(iEvent $e) {

@@ -21,6 +21,14 @@ interface iEventStorage {
     function fetchList($limit, $offset);
 
     /**
+     * Fetches count of events
+     *
+     * @return int
+     * @exception Exception
+     */
+    function fetchCount();
+
+    /**
      * Fetches one object
      *
      * @param $id int

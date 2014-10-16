@@ -61,6 +61,21 @@ class MysqlEventStorage implements iEventStorage {
     }
 
     /**
+     * @copydoc iEventStorage::fetchCount
+     */
+    function fetchCount() {
+        $sql = 'SELECT count(*) as count FROM event ORDER BY created';
+        $stmt = $this->pdo->prepare($sql);        
+        $stmt->execute();
+
+        $result = 0;
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $list[0]['count'];
+
+        return $result;
+    }
+
+    /**
      * @copydoc iEventStorage::insert
      */
     function insert(iEvent $event) {
