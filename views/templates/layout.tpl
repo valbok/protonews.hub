@@ -18,38 +18,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 </head>
 <body class="frontpage  responsiveMenu" data-version="solfront">
-    <div class="page-wrapper">
-        <div class="page-header-wrap">
-            <header class="page-header">
-                <div id="header" class="header-bar">
-                    <div class="wrapper clear">
-                        <div class="header-bar-wrap">
-                            <span class="menu-link"><span><a href="/">HUB</a></span></span>
-                            <form class="searchform"
-                              action="http://r.lp4.io/sol.no/menu_d_search/http://www.kvasir.no/alle">
-                                <a href="/events">Events</a>
-                            </form>
-
-                            <span class="page-title clear">
-                                <span class="title responsive-text-fill">
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </div>
-            
-        <div id="main-wrapper" class="wrapper">
-            <div class="main-content">
-                <div id="dfdboxedit"></div>
-                <div class="content">
-                    <div id="front-66" class="drfront">     
-                        <?=$page?>
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </div>
+    <?=$page?>
 </body>
 </html>

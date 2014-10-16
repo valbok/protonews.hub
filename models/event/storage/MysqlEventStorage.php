@@ -42,7 +42,7 @@ class MysqlEventStorage implements iEventStorage {
      * @copydoc iEventStorage::fetchList
      */
     function fetchList($limit = false, $offset = false) {
-        $sql = 'SELECT * FROM event';
+        $sql = 'SELECT * FROM event ORDER BY created';
         if ($limit or $offset) {
             $sql .= ' limit :offset, :limit';
         }
