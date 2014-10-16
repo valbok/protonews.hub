@@ -13,36 +13,36 @@ interface iArticle {
     /**
      * @return this|int
      */
-    function id();
+    function id($newValue = null);
 
     /**
      * @return this|[]
      */
-    function content();
+    function content($newValue = null);
 
     /**
      * @return this|string
      */
-    function imgUrl();
+    function imgUrl($newValue = null);
 
     /**
      * @return this|string
      */
-    function link();
+    function link($newValue = null);
 
     /**
      * @return this|string
      */
-    function type();
+    function type($newValue = null);
 
     /**
      * @return this|int
      */
-    function created();
+    function created($newValue = null);
 
     /**
      * @return this|int
      */
-    function updated();
+    function updated($newValue = null);
 }
 

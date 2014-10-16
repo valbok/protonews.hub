@@ -50,6 +50,13 @@ class EventStorage {
     }
 
     /**
+     * @return void
+     */
+    static function delete($id) {
+        self::storage()->delete($id);
+    }
+
+    /**
      * @return iArticleStorage
      */
     protected static function storage() {

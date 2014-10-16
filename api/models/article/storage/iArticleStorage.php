@@ -16,6 +16,7 @@ interface iArticleStorage {
      * @param $limit int
      * @param $offset int
      * @return iArticle[]
+     * @exception Exception
      */
     function fetchList($limit, $offset);
 
@@ -24,6 +25,7 @@ interface iArticleStorage {
      *
      * @param $id int
      * @return iArticle
+     * @exception Exception
      */
     function fetch($id);
 }

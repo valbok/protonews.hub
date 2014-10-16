@@ -14,10 +14,19 @@ class Controller_event extends Controller {
      * @copydoc Controller::process
      */
     function process() {
+        if (isset($_POST['delete'])) {
+            $id = @$_POST['id'];
+            try {
+                EventStorage::delete($id);
+                self::go('/events');
+            } catch (Exception $e) {
+                $this->errors[] = $e->getMessage();
+            }
+        }
+
         $event = self::fetchEvent(@$_GET['id']);
         if (!$event) {
-            header('Location: /');
-            exit;
+            self::go('/');
         }
         $this->title = 'Articles of event ' . $event->name();
         $this->event = $event;

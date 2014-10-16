@@ -20,26 +20,26 @@ interface iEvent {
     /**
      * @return this|int
      */
-    function id();
+    function id($newValue = null);
 
     /**
      * @return this|string
      */
-    function name();
+    function name($newValue = null);
 
     /**
      * @return this|int
      */    
-    function created();
+    function created($newValue = null);
 
     /**
      * @return this|int
      */    
-    function updated();
+    function updated($newValue = null);
 
     /**
      * @return this|[]
      */    
-    function articleIds();
+    function articleIds($newValue = null);
 }
 

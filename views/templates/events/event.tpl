@@ -25,13 +25,23 @@
             <div id="dfdboxedit"></div>
             <div class="content">
                 <div id="front-66" class="drfront">  
+                    <div style="float:right" class="article-extract">
+                        <span class="df-img-container">
+                            <span class="df-img-container-inner">   
+                                <span class="df-img-layer">&nbsp;</span>                    
+                                <div class="artsource" style="right: auto">
+                                    <form method="post" action="/event">
+                                        <input type="hidden" name="id" value="<?=$event->id()?>" />
+                                        <input class="searchbutton" type="submit" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete the event?')">
+                                    </form>
+                                </div>
+                            </span>
+                        </span> 
+                    </div> 
 
-                    <div class="container videoinfo">
-                        <div class="ele1ment-info">
-                            <h1 style="color:#666" col1orclass="video-title"><?=$event->name()?></h1>
-                        </div>
+                    <div class="container videoinfo">       
+                        <h1 style="color:#666" col1orclass="video-title"><?=$event->name()?></h1>
                         <div class="clearfix"></div>
-
                         <?=self::tpl('articles/articles.tpl', array('articles' => $articles));?>
                     </div>
                 </div>

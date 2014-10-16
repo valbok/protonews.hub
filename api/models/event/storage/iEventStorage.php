@@ -16,6 +16,7 @@ interface iEventStorage {
      * @param $limit int
      * @param $offset int
      * @return iEvent[]
+     * @exception Exception
      */
     function fetchList($limit, $offset);
 
@@ -24,13 +25,15 @@ interface iEventStorage {
      *
      * @param $id int
      * @return iEvent
+     * @exception Exception
      */
     function fetch($id);
 
     /**
      * Inserts an event to db
      *
-     * @return int
+     * @return int Id of inserted value or false
+     * @exception Exception
      */
     function insert(iEvent $event);
 
@@ -38,6 +41,7 @@ interface iEventStorage {
      * Deletes an event from db
      *
      * @return void
+     * @exception Exception
      */
     function delete($id);
 }
