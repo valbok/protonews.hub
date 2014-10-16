@@ -18,8 +18,7 @@ class Controller_events extends Controller {
     function process() {
         $this->title = "Events";
         $this->events = self::fetchEvents();
-        $this->events_total_count = self::fetchEventsCount();
-        $this->limit = self::LIMIT;
+        $this->has_more = self::LIMIT < self::fetchEventsCount();
 
         return $this->layout($this->fetch('events.tpl'));
     }

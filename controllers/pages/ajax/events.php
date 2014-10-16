@@ -14,7 +14,9 @@ class Controller_ajax_events extends Controller_events {
      * @copydoc Controller::process
      */
     function process() {
-        $this->events = self::fetchEvents(@$_GET['offset']);
+        $offset = @$_GET['offset'];
+        $this->events = self::fetchEvents($offset);
+        $this->has_more = ($offset + self::LIMIT) < self::fetchEventsCount();
 
         return $this->fetch('events/events.tpl');
     }

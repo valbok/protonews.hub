@@ -42,9 +42,9 @@
                                         </div> 
                                         <br/>
                                         <br/>                                    
-                                        <?=self::tpl('events/events.tpl', array('events' => $events))?>
+                                        <?=self::tpl('events/events.tpl', array('events' => $events, 'has_more' => $has_more))?>
                                     </div>
-                                    <? if (count($events) != $events_total_count) { ?>
+                                    <? if ($has_more) { ?>
                                         <a href="#" class="more-events">More >></a><img style="display:none" class="loader" src="/views/images/loader.gif"/>
                                     <? } ?>
                                 </div>

@@ -9,6 +9,11 @@ $( document ).ready(function(){
         var link = '/ajax/' + service + '?offset=' + article_offset;
         $.get( link,
                 function(data) {
+                    var no_more = $('.articles-no-more', data).length > 0;
+                    if (no_more) {
+                        $(ths).hide();
+                    }
+
                     $(".articles").append(data);
                     $(ths).next('.loader').hide();
                 }
@@ -24,6 +29,10 @@ $( document ).ready(function(){
         var link = '/ajax/events?offset=' + event_offset;
         $.get( link,
                 function(data) {
+                    var no_more = $('.events-no-more', data).length > 0;
+                    if (no_more) {
+                        $(ths).hide();
+                    }
                     $(".events").append(data);
                     $(ths).next('.loader').hide();
                 }
