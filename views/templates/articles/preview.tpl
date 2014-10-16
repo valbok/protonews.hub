@@ -10,7 +10,7 @@
                             </a>
                         <? } ?>
                         <span class="df-img-layer">&nbsp;</span>                    
-                        <div style="float:right" class="artsource" style="right: auto">
+                        <div <?=!$article->imgUrl()?'style="left: 0; right: auto"':''?> class="artsource" >
                             <a href="<?=$article->link()?>"><?=$article->domain()?></a> 
                         </div>
                     </span>

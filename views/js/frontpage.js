@@ -18,7 +18,7 @@ $( document ).ready(function(){
     });
 
     $('.more-events').click(function() {
-        event_offset += 10;
+        event_offset += 4;
         var ths = this;
         $(ths).next('.loader').show();
         var link = '/ajax/events?offset=' + event_offset;

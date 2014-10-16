@@ -15,7 +15,7 @@ class Controller_frontpage extends Controller {
      */
     function process() {
         $this->title = "News feed";
-        $this->articles = self::fetchArticles();
+        $this->articles = $this->fetchArticles();
 
         return $this->layout($this->fetch('frontpage.tpl'));
     }
@@ -23,10 +23,15 @@ class Controller_frontpage extends Controller {
     /**
      * @return html
      */
-    protected static function fetchArticles($offset = false) {
-        $limit = 10;
-        $articles = ArticleStorage::fetchList($limit, $offset);
+    protected function fetchArticles($offset = false) {
+        $result = array();
+        try {
+            $limit = 10;
+            $result = ArticleStorage::fetchList($limit, $offset);
+        } catch (Exception $e) {
+            $this->errors[] = $e->getMessage();
+        }
 
-        return $articles;
+        return $result;
     }
 }

@@ -3,7 +3,7 @@
         <div class="article-extract article-extract-two-thirds left row-1 img-brd-0 bg-skin-bg_transparent-bordertop df-left-in-row df-top-in-row df-bottom-in-row">
             <div class="article-content">       
                 <span class="df-img-container">
-                    <input type="checkbox" name="article_id" value="<?=$article->id()?>"/>
+                    <input type="checkbox" name="article_ids[]" value="<?=$article->id()?>"/>
                     <span  class="df-img-container-inner">
                         <? if ($article->imgUrl()) { ?>
                             <a class="cxense" href="<?=$article->link()?>">
@@ -11,7 +11,7 @@
                             </a>
                         <? }?>
                         <span class="df-img-layer">&nbsp;</span>                    
-                        <div style="left: 0; right: auto" class="artsource" style="right: auto">
+                        <div style="left: 0; right: auto" class="artsource">
                             <a href="<?=$article->link()?>"><?=$article->domain()?></a> 
                         </div>
 

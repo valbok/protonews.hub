@@ -15,6 +15,11 @@ abstract class Controller implements iController {
      */
     protected $tpl = false;
 
+    /**
+     * @var []
+     */
+    protected $errors = array();
+
     function __construct() {
         $this->tpl = Template::get();
     }
@@ -24,6 +29,18 @@ abstract class Controller implements iController {
      */
     function __set($name, $value) {
         $this->tpl->$name = $value;
+    }
+
+    /**
+     * @return 
+     */
+    function __get($name) {
+        $v = $this->tpl->$name;
+        if ($v === null) {
+            $v = isset($this->$name) ? $this->$name : null;
+        }
+
+        return $v;
     }
 
     /**
@@ -39,6 +56,16 @@ abstract class Controller implements iController {
      * @return html
      */
     function fetch($path) {
+        $this->tpl->errors = $this->errors;
         return $this->tpl->fetch($path);
     }
+
+    /**
+     * @return void
+     */
+    function go($to) {
+        header("Location: $to");
+        exit;
+    }
+
 }

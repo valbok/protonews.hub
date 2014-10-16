@@ -26,6 +26,7 @@
             <div class="content">
                 <div id="front-66" class="drfront">     
                     <div class="articles">
+                        <?=self::tpl('errors.tpl', array('errors' => $errors))?>
                         <?=self::tpl('articles/articles.tpl', array('articles' => $articles))?>
                     </div>
 

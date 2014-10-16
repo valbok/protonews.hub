@@ -37,6 +37,11 @@ class Event implements iEvent {
      */
     protected $updated = false;
 
+    function __construct() {
+        $this->created = time();
+        $this->updated = 0;
+    }
+
     /**
      * @copydoc iEvent::append
      */

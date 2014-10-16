@@ -20,11 +20,8 @@ class EventStorage {
         }
 
         $result = false;
-        try {
-            $result = self::storage()->fetch($id);
-            $cache[$id] = $result;
-        } catch (Exception $e) {
-        }
+        $result = self::storage()->fetch($id);
+        $cache[$id] = $result;
 
         return $result;
     }
@@ -38,11 +35,18 @@ class EventStorage {
         if (isset($cache[$key])) {
             return $cache[$key];
         }
-        
+
         $list = self::storage()->fetchList($limit, $offset);
         $cache[$key] = $list;
 
         return $list;
+    }
+
+    /**
+     * @return bool true if ok
+     */
+    static function insert(iEvent $e) {
+        return self::storage()->insert($e);
     }
 
     /**

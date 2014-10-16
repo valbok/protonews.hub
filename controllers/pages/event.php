@@ -23,7 +23,7 @@ class Controller_event extends Controller {
         $this->event = $event;
         $this->articles = self::fetchArticles($event);
         return $this->layout($this->fetch('events/event.tpl'));
-	}
+    }
 
     /**
      * @return html

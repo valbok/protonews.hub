@@ -25,12 +25,13 @@
             <div id="dfdboxedit"></div>
             <div class="content">
                 <div id="front-66" class="drfront">  
-                    <div st1yle="float:left">                
-                        <form method="get" class="navbar-form navbar-right" action="/create/event" >
+                    <div st1yle="float:left">  
+                        <?=$errors?"<p>" . implode('<br/>', $errors) . "</p>":""?>
+                        <form method="post" class="navbar-form navbar-right" action="/create/event" >
                             <div class="form-group">
                                 <input type="text" autocomplete="off" placeholder="Name" class="search-input form-control" name="title" id="searchstring">
                             </div>
-                            <input class="searchbutton" type="submit" value="Create event">
+                            <input class="searchbutton" type="submit" value="Create event" name="create">
                             <br/><br/><br/><br/><br/>
                             <div class="articles">
                                 <?=self::tpl('articles/articles.tpl', array('articles' => $articles, 'preview' => 'create_event_preview.tpl'))?>

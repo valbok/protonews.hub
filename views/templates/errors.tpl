@@ -1,0 +1,1 @@
+<?=$errors?"<p>" . implode('<br/>', $errors). "</p>":""?>
