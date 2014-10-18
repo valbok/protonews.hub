@@ -9,7 +9,7 @@ require_once 'autoload.php';
 
 class MysqlEventStorageTest extends PHPUnit_Framework_TestCase {
 
-    function testFetchUnknown() { 
+    function testFetchUnknown() {
         $db = new MysqlEventStorage(MysqlEventStorage::pdo());
         $this->assertEquals(false, $db->fetch('666'));
     }

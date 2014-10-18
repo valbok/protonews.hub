@@ -24,11 +24,11 @@
         <div class="main-content">
             <div id="dfdboxedit"></div>
             <div class="content">
-                <div id="front-66" class="drfront">  
+                <div id="front-66" class="drfront">
                     <div style="float:right" class="article-extract">
                         <span class="df-img-container">
-                            <span class="df-img-container-inner">   
-                                <span class="df-img-layer">&nbsp;</span>                    
+                            <span class="df-img-container-inner">
+                                <span class="df-img-layer">&nbsp;</span>
                                 <div class="artsource" style="right: auto">
                                     <form method="post" action="/event">
                                         <input type="hidden" name="id" value="<?=$event->id()?>" />
@@ -36,17 +36,17 @@
                                     </form>
                                 </div>
                             </span>
-                        </span> 
-                    </div> 
+                        </span>
+                    </div>
 
-                    <div class="container videoinfo">       
+                    <div class="container videoinfo">
                         <h1 style="color:#666" col1orclass="video-title"><?=$event->name()?></h1>
                         <div class="clearfix"></div>
                         <?=self::tpl('articles/articles.tpl', array('articles' => $articles));?>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
                     

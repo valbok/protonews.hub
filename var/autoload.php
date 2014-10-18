@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @author VaL
  * @copyright Copyright (C) 2014 VaL::bOK

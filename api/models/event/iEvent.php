@@ -29,17 +29,17 @@ interface iEvent {
 
     /**
      * @return this|int
-     */    
+     */
     function created($newValue = null);
 
     /**
      * @return this|int
-     */    
+     */
     function updated($newValue = null);
 
     /**
      * @return this|[]
-     */    
+     */
     function articleIds($newValue = null);
 }
 

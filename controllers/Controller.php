@@ -32,7 +32,7 @@ abstract class Controller implements iController {
     }
 
     /**
-     * @return 
+     * @return
      */
     function __get($name) {
         $v = $this->tpl->$name;

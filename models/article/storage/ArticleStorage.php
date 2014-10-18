@@ -42,7 +42,7 @@ class ArticleStorage {
         } catch (Exception $e) {
         }
 
-        return $result;        
+        return $result;
     }
 
     /**

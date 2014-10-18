@@ -26,7 +26,7 @@ class MysqlEventStorage implements iEventStorage {
      * @copydoc iEventStorage::fetch
      */
     function fetch($id) {
-        $stmt = $this->pdo->prepare('SELECT * FROM event WHERE id = :id');        
+        $stmt = $this->pdo->prepare('SELECT * FROM event WHERE id = :id');
         $stmt->bindValue(':id', $id);
         $stmt->execute();
 
@@ -46,7 +46,7 @@ class MysqlEventStorage implements iEventStorage {
         if ($limit or $offset) {
             $sql .= ' limit :offset, :limit';
         }
-        $stmt = $this->pdo->prepare($sql);        
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':limit', $limit);
         $stmt->bindValue(':offset', $offset);
         $stmt->execute();
@@ -65,7 +65,7 @@ class MysqlEventStorage implements iEventStorage {
      */
     function fetchCount() {
         $sql = 'SELECT count(*) as count FROM event ORDER BY created';
-        $stmt = $this->pdo->prepare($sql);        
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
 
         $result = 0;
@@ -84,7 +84,7 @@ class MysqlEventStorage implements iEventStorage {
         $stmt->bindValue(':name', $event->name());
         $stmt->bindValue(':created', $event->created());
         $stmt->bindValue(':updated', $event->updated());
-        $stmt->execute();        
+        $stmt->execute();
 
         $id = $this->pdo->lastInsertId();
         $event->id = $id;
@@ -142,6 +142,6 @@ class MysqlEventStorage implements iEventStorage {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        return $pdo;        
+        return $pdo;
     }
 }

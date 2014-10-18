@@ -43,10 +43,10 @@ class MongoArticleStorage implements iArticleStorage {
     protected static function parse($value) {
         $item = new Article;
         $item->id($value['_id']);
-        $item->content($value['content']);   
+        $item->content($value['content']);
         $item->imgUrl($value['imgUrl']);
-        $item->link($value['link']); 
-        $item->type($value['type']); 
+        $item->link($value['link']);
+        $item->type($value['type']);
         $item->created((string) $value['createTime']);
         $item->updated((string) $value['updateTime']);
 
@@ -69,6 +69,6 @@ class MongoArticleStorage implements iArticleStorage {
         $client = new MongoClient('mongodb://article_reader:article_reader@ds063879.mongolab.com:63879/heroku_app29725784');
         $db = $client->heroku_app29725784;
     
-        return $db->articles;        
+        return $db->articles;
     }
 }

@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS event;
 CREATE TABLE event (
-  id int(11) NOT NULL auto_increment,  
+  id int(11) NOT NULL auto_increment,
   name varchar(255) default NULL,
   created int(11) NOT NULL default '0',
   updated int(11) NOT NULL default '0',

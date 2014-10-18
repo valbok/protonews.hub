@@ -24,8 +24,8 @@
         <div class="main-content">
             <div id="dfdboxedit"></div>
             <div class="content">
-                <div id="front-66" class="drfront">  
-                    <div st1yle="float:left">  
+                <div id="front-66" class="drfront">
+                    <div st1yle="float:left">
                         <?=$errors?"<p>" . implode('<br/>', $errors) . "</p>":""?>
                         <form method="post" class="navbar-form navbar-right" action="/create/event" >
                             <div class="form-group">
@@ -42,6 +42,6 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>

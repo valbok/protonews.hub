@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="cache-control" content="no-store">    
+    <meta http-equiv="cache-control" content="no-store">
     <title><?=$title?></title>
     
     <link href="http://www.soltv.no/min/?g=css&amp;v=ce1132c828860d593bd46d7ad83fc0a4f403a2eb" rel="stylesheet" type="text/css">
