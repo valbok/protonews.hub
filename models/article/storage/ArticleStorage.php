@@ -14,7 +14,7 @@ class ArticleStorage {
      * @copydoc iArticleStorage::fetchList
      */
     static function fetchList($limit = false, $offset = false) {
-        static $cache = [];
+        static $cache = array();
         $key = md5($limit . $offset);
         if (isset($cache[$key])) {
             return $cache[$key];
