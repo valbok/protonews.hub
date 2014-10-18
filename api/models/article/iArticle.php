@@ -45,4 +45,3 @@ interface iArticle {
      */
     function updated($newValue = null);
 }
-

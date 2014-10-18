@@ -22,7 +22,7 @@ class ControllerHandler {
         if (!class_exists($class)) {
             throw new Exception('Could not find controller: ' . $name);
         }
- 
+
         $result = new $class;
         return $result->process();
     }

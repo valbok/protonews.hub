@@ -68,7 +68,7 @@ class MongoArticleStorage implements iArticleStorage {
     static function collection() {
         $client = new MongoClient('mongodb://article_reader:article_reader@ds063879.mongolab.com:63879/heroku_app29725784');
         $db = $client->heroku_app29725784;
-    
+
         return $db->articles;
     }
 }

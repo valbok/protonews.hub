@@ -74,4 +74,3 @@ class EventStorage {
         return $db;
     }
 }
-

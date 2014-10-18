@@ -19,7 +19,7 @@ class ArticleStorage {
         if (isset($cache[$key])) {
             return $cache[$key];
         }
-        
+
         $list = self::storage()->fetchList($limit, $offset);
         $cache[$key] = $list;
 
@@ -56,4 +56,3 @@ class ArticleStorage {
         return $db;
     }
 }
-

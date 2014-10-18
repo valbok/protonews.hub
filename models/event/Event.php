@@ -86,4 +86,3 @@ class Event implements iEvent {
         return $this->setget('articleIds', $v);
     }
 }
-

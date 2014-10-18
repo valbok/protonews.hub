@@ -9,7 +9,7 @@
  * Events frontpage logic
  */
 class Controller_event extends Controller {
-	
+
     /**
      * @copydoc Controller::process
      */

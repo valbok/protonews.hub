@@ -67,7 +67,7 @@ class Article implements iArticle {
     function imgUrl($v = null) {
         return $this->setget('imgUrl', $v);
     }
-    
+
     /**
      * @copydoc iArticle::link
      */
@@ -104,4 +104,3 @@ class Article implements iArticle {
         return $url['host'];
     }
 }
-

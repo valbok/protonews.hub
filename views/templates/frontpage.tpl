@@ -19,7 +19,7 @@
             </div>
         </header>
     </div>
-        
+
     <div id="main-wrapper" class="wrapper">
         <div class="main-content">
             <div id="dfdboxedit"></div>

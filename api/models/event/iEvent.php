@@ -9,7 +9,7 @@
  * Api for events
  */
 interface iEvent {
-    
+
     /**
      * Appends new value to internal structure
      *
@@ -42,4 +42,3 @@ interface iEvent {
      */
     function articleIds($newValue = null);
 }
-
