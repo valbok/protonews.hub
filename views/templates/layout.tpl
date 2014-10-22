@@ -10,7 +10,7 @@
     <title><?=$title?></title>
 
     <link href="http://www.soltv.no/min/?g=css&amp;v=ce1132c828860d593bd46d7ad83fc0a4f403a2eb" rel="stylesheet" type="text/css">
-    <link href="http://sol.no/static/css/frontpage/style.min_f65afb6f.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://www.sol.no/static/css/frontpage/style.min_b1e2f2b3.css" media="screen" rel="stylesheet" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/views/js/frontpage.js" charset="utf-8"></script>
