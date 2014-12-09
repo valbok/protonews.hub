@@ -14,6 +14,6 @@ Something interested
 2. An ability to combine few articles to one event and store on its own locations. [Events] (https://github.com/valbok/protonews.hub/tree/master/api/models/event)
 3. Used Model-View-Presenter pattern to control actions from users.
 4. Implemented simple template engine for views.
-5. Respected to SOLID and dependency inversion principle in particular.
+5. With respect to SOLID and dependency inversion principle in particular.
 6. Object-relational mapping to read data from different database storages.
 7. Examples how to fetch items via ajax.
