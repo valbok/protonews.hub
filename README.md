@@ -2,12 +2,12 @@ protonews.hub
 =============
 Protonews.hub - is a prototype of news aggregator.
 
-LOGICAL FLOW
+Logical flow
 ------------
 1. Spiders gather some news and place it into mongoDb server.
 2. News hub reads the list of news items and shows them to users.
 
-INTERESTED
+Something interested
 -------
 0. Implemented without any frameworks on pure php.
 1. Abilities to fetch news items from different storage engines: [Articles](https://github.com/valbok/protonews.hub/blob/master/api/models/article)
