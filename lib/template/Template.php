@@ -9,8 +9,7 @@
 /**
  * Simplified object to handle templates
  */
-class Template
-{
+class Template {
     /**
      * Dir where tpls are located
      *
@@ -28,8 +27,7 @@ class Template
     /**
      * @param string $dir Where templates are located
      */
-    public function __construct($dir = 'views/templates')
-    {
+    public function __construct($dir = 'views/templates') {
         $this->dir = $dir;
     }
 
@@ -38,8 +36,7 @@ class Template
      *
      * @return __CLASS__
      */
-    public static function get($dir = false)
-    {
+    public static function get($dir = false) {
         return $dir ? new self($dir) : new self();
     }
 
